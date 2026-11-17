@@ -2,7 +2,7 @@
 
 **From workflow bottlenecks to actionable recommendations, human-reviewed AI drafts, and transparent business-impact estimates.**
 
-**Live demo:** [Add your Streamlit Community Cloud URL here]  
+**Live demo:**  https://processshift-ai.streamlit.app/  
 **Source code:** https://github.com/findmeenu/ProcessShift-AI
 
 > **Portfolio prototype** built with synthetic demonstration data. It does not connect to a live accounting system, send emails, approve payments, or demonstrate verified cost savings.
