@@ -1,65 +1,122 @@
-# ProcessShift — AI-assisted business process transformation
+# ProcessShift — AI-Assisted Business Process Improvement & Automation
 
-**A portfolio project for a junior AI-native management consulting role.**
+**From workflow bottlenecks to actionable recommendations, human-reviewed AI drafts, and transparent business-impact estimates.**
 
-**Business problem:** Invoice exceptions often bounce between accounts payable, operations and finance. Missing information, waiting, and rework can delay completion. The aim is to discover where the process stalls, propose practical changes, and help a human team run a measurable improvement pilot.
+**Live demo:** [Add your Streamlit Community Cloud URL here]  
+**Source code:** https://github.com/findmeenu/ProcessShift-AI
 
-**What the prototype actually does:**
-1. Loads a synthetic event log or your own compatible CSV.
-2. Computes case-level lead times, rework, target breaches and cumulative waiting time between steps using transparent Python logic.
-3. Translates observed patterns into **testable improvement hypotheses**, not unverified claims.
-4. Optionally uses an OpenAI model to draft a management consulting memo from **aggregated data only**.
-5. Builds a four-week change pilot and a **clearly illustrative** time/capacity value scenario.
-6. Downloads an executive brief.
+> **Portfolio prototype** built with synthetic demonstration data. It does not connect to a live accounting system, send emails, approve payments, or demonstrate verified cost savings.
 
-**What is not implemented:** Connecting to a real ERP, sending notifications, automatic approval, actual AI-agent tool use, deployment in a customer's environment, or measured business savings. This is a **prototype** with simulated events. AI memo generation requires a user-provided API key and API access; the rest runs without one.
+## The business problem
+
+Invoice workflows can get stuck because information is missing, a handoff is unclear, or approval takes longer than expected. Manual follow-ups create repeated work, and managers may not know which step needs improvement.
+
+ProcessShift demonstrates an approach to this problem: **measure workflow friction, propose testable changes, help employees handle invoice exceptions, and estimate potential business value**.
+
+## What the application does
+
+| Feature | What it demonstrates |
+| --- | --- |
+| **1. Diagnose** | Analyzes timestamped invoice events, lead times, target breaches, rework, and time between workflow steps. |
+| **2. Root-cause hypotheses** | Converts observed patterns into possible explanations, proposed changes, human checkpoints, and KPIs. These are hypotheses, not proven causes. |
+| **3. AI consultant** | Uses Google Gemini (or optionally OpenAI) to draft a consulting-style improvement memo based on aggregated metrics. Requires a user-provided API key. |
+| **4. Pilot & business case** | Presents a change pilot and scenario-based value estimates using adjustable assumptions. |
+| **5. Invoice AI Assistant** | Checks a single invoice for missing required fields and uses Gemini to draft a clarification request for employee review and approval. |
+| **6. Bulk Invoice Processing** | Checks up to 500 invoice rows in an uploaded CSV, creates AI clarification templates by missing-field pattern, and exports only employee-approved drafts. |
+| **7. Automation Impact** | Shows validated invoice counts, scenario-based time savings, and estimated labor value with adjustable assumptions; exports an impact CSV. |
+
+## Demo dataset and illustrative findings
+
+The built-in event log contains **36 fictional invoice cases**. With the default 72-hour target, the demonstration reports:
+
+- **Median completion time:** 58.5 hours
+- **Cases beyond target:** 38.9%
+- **Cases with rework:** 38.9%
+- **Cases with missing information:** 33.3%
+- **Cumulative approval transition time:** 1,256 hours across cases
+
+These findings describe **synthetic test data**, not a real organization's performance. Cumulative waiting time is not the same as employee working time.
+
+The separate sample bulk-invoice CSV contains five rows: **two complete** and **three needing attention** under the demonstration rules.
+
+## How the workflow works
+
+1. **Inspect data:** Upload an event log or use the built-in demonstration data.
+2. **Diagnose:** Python computes workflow measurements and flags patterns worth investigating.
+3. **Recommend:** Rules generate testable hypotheses; an AI model can draft a management briefing from aggregate results.
+4. **Assist:** Upload a separate bulk-invoice CSV. Python checks required fields and Gemini drafts clarification templates for missing information.
+5. **Review:** A person edits and approves clarification drafts before downloading them. **Nothing is sent automatically.**
+6. **Evaluate:** Adjust assumptions in the impact dashboard to illustrate a potential business case and define what should be measured in a real pilot.
+
+## Tech stack
+
+- **Python** — application logic and deterministic checks
+- **Streamlit** — interactive web interface
+- **Pandas** — CSV loading, validation, and analysis
+- **Google Gemini API** — AI-generated recommendations and clarification drafts
+- **OpenAI API** — optional alternative for the consulting memo
 
 ## Run locally
 
-Requirements: Python 3.10+ and an internet connection once to install dependencies.
+Requires Python 3.10+.
 
 ```bash
-cd brightshift_process_copilot
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-To run basic tests (no dependencies):
+Open the URL Streamlit displays in your terminal. The built-in workflow analysis works without an API key. For AI-generated outputs, select a provider in **AI consultant** and enter your **own** API key in the application's password field.
+
+Run the included analytical tests:
 
 ```bash
 python -m unittest discover -p "test_*.py" -v
 ```
 
-## Demo walkthrough (2–3 minutes)
+## CSV inputs
 
-1. Open the Diagnose tab: show how 36 fictional invoices have different lead times and handoffs.
-2. Open Root-cause hypotheses: identify missing handover information and rework, while being explicit that the data cannot prove causation.
-3. Open AI consultant: demonstrate the aggregate-data prompt and, with a valid API key, generate an AI briefing. Without a key, show the deterministic analyst brief and explicitly state **no AI model was called**.
-4. Open Pilot & business case: change the sliders to demonstrate assumptions and show how you'd measure **actual** improvements during a customer pilot.
-5. Download the executive brief.
+**Event-log analysis (Diagnose):**
 
-## Approach and safety
+```text
+case_id,activity,timestamp,team,amount_sek,vendor,note
+```
 
-- **Deterministic analytics:** no fabricated AI classifications or model-generated KPIs.
-- **AI integration:** optional OpenAI Responses API, generating recommendations only from computed aggregated metrics. The model never decides whether to pay an invoice.
-- **Privacy:** vendor names, comments and invoice IDs are not sent to the API. Only synthetic or approved data should be used. The uploaded CSV is processed in the running Streamlit session.
-- **Prompt injection / hallucination:** treat event log text as untrusted; verify any AI text against computed numbers. Review outputs before sharing.
-- **Measurement honesty:** time intervals include nights/weekends. Saved time/cost scenarios are assumptions, not measured ROI; capacity gain is not necessarily cash savings.
-- **Production next steps:** access control, real data governance, working-hours-aware cycle times, usability interviews, monitoring, baseline-versus-pilot design, and security review.
+Each row represents a workflow event; timestamps use `YYYY-MM-DD HH:MM`. The included `demo_invoices.csv` is an example.
 
-## Example application narrative
+**Bulk invoice validation:**
 
-> I built ProcessShift to explore how AI can support organizational change, not simply automate content. I started with a business problem I knew from finance: invoice exceptions and ownership handoffs. The app measures process friction, proposes testable changes, asks humans to review recommendations, and provides a pilot plan with clearly labelled value assumptions. AI drafts a client-facing memo from aggregate statistics; it does not invent or approve financial decisions.
+```text
+invoice_number,po_number,owner
+INV-101,,Sarah
+INV-102,PO-200,John
+INV-103,PO-201,
+```
 
-**Do not claim measured reductions or live customer adoption from this prototype.**
+An empty required field is flagged for review. This is **field-presence validation**, not proof an invoice or PO is valid. The app supports a maximum of 500 rows per upload for this demo.
 
-## Input schema
+## Safety, privacy, and limitations
 
-`case_id,activity,timestamp,team,amount_sek,vendor,note`
+- **Human oversight:** AI-generated messages must be reviewed; the application does not send email, approve invoices, or initiate payments.
+- **AI uncertainty:** Recommendations can be incorrect; staff must confirm root causes, policy requirements, and message accuracy.
+- **Data minimization:** AI requests in the demonstrated workflows are designed to use aggregate findings or missing-field categories, not individual invoice identifiers or amounts. Review code and provider terms before using sensitive data.
+- **Key security:** API keys are entered at runtime. **Never commit keys or private configuration files to GitHub.**
+- **Impact estimates:** The dashboard combines actual counts from uploaded test files with **assumed** manual and automated handling times. It does not measure actual task duration or establish realized financial savings. Reductions in staff time do not necessarily become cash savings.
+- **Scope:** There is no live ERP integration, email delivery, role-based access control, or production audit workflow. Use fictional or explicitly authorized data only.
 
-Timestamp format: `YYYY-MM-DD HH:MM`. Each row is a process event. A case should have two or more events for meaningful elapsed time. No real customer data is included.
+## How I would validate the business value
 
-## Suggested CV line (only once you've run and understood it)
+A real pilot would first measure manual validation time, clarification drafting/review time, the rate of missing-information cases, and the time from exception detection to resolution. Then a limited group would use the assisted workflow while recording review time, corrections, failure cases, and staff feedback. Comparing both processes would help assess whether the automation truly reduces work without introducing quality or security problems.
 
-**ProcessShift — AI-assisted business process diagnostic | Python, Streamlit, OpenAI API (optional)**  
-Built a prototype analyzing invoice-event logs to flag process delays and rework, propose human-reviewed improvements, and prepare an AI-assisted transformation pilot and scenario-based value estimate.
+## Next improvements
+
+- Time the manual and AI-assisted workflows in controlled tests
+- Add more realistic invoice rules and validation test cases
+- Improve accessibility, errors, and input validation
+- Add authentication, logging, and appropriate data-handling controls before any business use
+- Evaluate optional integrations with existing ERP/ticketing systems
+
+## Why I built it
+
+My background combines finance operations, business-process improvement, and software development. I built ProcessShift to explore how AI can help teams **understand an operational problem, propose and test a practical improvement, keep people in control, and communicate potential business value**—rather than using AI simply to produce text.
+
+**Project status:** Working portfolio prototype; not a production finance system.
