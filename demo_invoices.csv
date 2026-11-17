@@ -1,0 +1,223 @@
+case_id,activity,timestamp,team,amount_sek,vendor,note
+INV-001,Received,2026-10-05 16:00,AP,8800,Synthetic Vendor 2,
+INV-001,Validated,2026-10-05 19:00,AP,8800,Synthetic Vendor 2,
+INV-001,Awaiting approval,2026-10-06 02:00,Operations,8800,Synthetic Vendor 2,
+INV-001,Approved,2026-10-06 17:00,Finance,8800,Synthetic Vendor 2,Human-approved in fictional dataset
+INV-001,Posted,2026-10-06 19:00,Finance,8800,Synthetic Vendor 2,
+INV-002,Received,2026-10-05 23:00,AP,41000,Synthetic Vendor 3,
+INV-002,Validated,2026-10-06 01:00,AP,41000,Synthetic Vendor 3,
+INV-002,Awaiting approval,2026-10-06 07:00,Operations,41000,Synthetic Vendor 3,
+INV-002,Approved,2026-10-06 22:00,Finance,41000,Synthetic Vendor 3,Human-approved in fictional dataset
+INV-002,Posted,2026-10-07 07:00,Finance,41000,Synthetic Vendor 3,
+INV-003,Received,2026-10-06 06:00,AP,3900,Synthetic Vendor 4,
+INV-003,Validated,2026-10-06 07:00,AP,3900,Synthetic Vendor 4,
+INV-003,Awaiting approval,2026-10-06 09:00,Operations,3900,Synthetic Vendor 4,
+INV-003,Approved,2026-10-08 00:00,Finance,3900,Synthetic Vendor 4,Human-approved in fictional dataset
+INV-003,Posted,2026-10-08 07:00,Finance,3900,Synthetic Vendor 4,
+INV-004,Received,2026-10-06 13:00,AP,1200,Synthetic Vendor 5,
+INV-004,Validated,2026-10-06 17:00,AP,1200,Synthetic Vendor 5,Missing PO reference
+INV-004,Request clarification,2026-10-06 19:00,AP,1200,Synthetic Vendor 5,Missing required field; awaiting business owner
+INV-004,Clarification received,2026-10-09 01:00,Operations,1200,Synthetic Vendor 5,Business owner clarifies reference
+INV-004,Validated,2026-10-09 08:00,AP,1200,Synthetic Vendor 5,Revalidated after missing information
+INV-004,Awaiting approval,2026-10-09 09:00,Operations,1200,Synthetic Vendor 5,
+INV-004,Approved,2026-10-11 09:00,Finance,1200,Synthetic Vendor 5,Human-approved in fictional dataset
+INV-004,Posted,2026-10-11 11:00,Finance,1200,Synthetic Vendor 5,
+INV-005,Received,2026-10-06 20:00,AP,3900,Synthetic Vendor 6,
+INV-005,Validated,2026-10-06 21:00,AP,3900,Synthetic Vendor 6,
+INV-005,Awaiting approval,2026-10-07 04:00,Operations,3900,Synthetic Vendor 6,
+INV-005,Approved,2026-10-07 19:00,Finance,3900,Synthetic Vendor 6,Human-approved in fictional dataset
+INV-005,Posted,2026-10-07 23:00,Finance,3900,Synthetic Vendor 6,
+INV-006,Received,2026-10-07 03:00,AP,1200,Synthetic Vendor 7,
+INV-006,Validated,2026-10-07 12:00,AP,1200,Synthetic Vendor 7,
+INV-006,Awaiting approval,2026-10-07 15:00,Operations,1200,Synthetic Vendor 7,
+INV-006,Awaiting approval,2026-10-08 21:00,Operations,1200,Synthetic Vendor 7,Second review required
+INV-006,Approved,2026-10-10 11:00,Finance,1200,Synthetic Vendor 7,Human-approved in fictional dataset
+INV-006,Posted,2026-10-10 14:00,Finance,1200,Synthetic Vendor 7,
+INV-007,Received,2026-10-07 10:00,AP,41000,Synthetic Vendor 1,
+INV-007,Validated,2026-10-07 12:00,AP,41000,Synthetic Vendor 1,
+INV-007,Awaiting approval,2026-10-07 17:00,Operations,41000,Synthetic Vendor 1,
+INV-007,Approved,2026-10-09 16:00,Finance,41000,Synthetic Vendor 1,Human-approved in fictional dataset
+INV-007,Posted,2026-10-09 19:00,Finance,41000,Synthetic Vendor 1,
+INV-008,Received,2026-10-07 17:00,AP,1200,Synthetic Vendor 2,
+INV-008,Validated,2026-10-07 21:00,AP,1200,Synthetic Vendor 2,Missing PO reference
+INV-008,Request clarification,2026-10-08 03:00,AP,1200,Synthetic Vendor 2,Missing required field; awaiting business owner
+INV-008,Clarification received,2026-10-09 04:00,Operations,1200,Synthetic Vendor 2,Business owner clarifies reference
+INV-008,Validated,2026-10-09 13:00,AP,1200,Synthetic Vendor 2,Revalidated after missing information
+INV-008,Awaiting approval,2026-10-09 15:00,Operations,1200,Synthetic Vendor 2,
+INV-008,Approved,2026-10-11 15:00,Finance,1200,Synthetic Vendor 2,Human-approved in fictional dataset
+INV-008,Posted,2026-10-11 16:00,Finance,1200,Synthetic Vendor 2,
+INV-009,Received,2026-10-08 00:00,AP,41000,Synthetic Vendor 3,
+INV-009,Validated,2026-10-08 04:00,AP,41000,Synthetic Vendor 3,Missing PO reference
+INV-009,Request clarification,2026-10-08 12:00,AP,41000,Synthetic Vendor 3,Missing required field; awaiting business owner
+INV-009,Clarification received,2026-10-11 02:00,Operations,41000,Synthetic Vendor 3,Business owner clarifies reference
+INV-009,Validated,2026-10-11 11:00,AP,41000,Synthetic Vendor 3,Revalidated after missing information
+INV-009,Awaiting approval,2026-10-11 18:00,Operations,41000,Synthetic Vendor 3,
+INV-009,Approved,2026-10-13 02:00,Finance,41000,Synthetic Vendor 3,Human-approved in fictional dataset
+INV-009,Posted,2026-10-13 10:00,Finance,41000,Synthetic Vendor 3,
+INV-010,Received,2026-10-08 07:00,AP,41000,Synthetic Vendor 4,
+INV-010,Validated,2026-10-08 15:00,AP,41000,Synthetic Vendor 4,
+INV-010,Awaiting approval,2026-10-08 21:00,Operations,41000,Synthetic Vendor 4,
+INV-010,Approved,2026-10-10 04:00,Finance,41000,Synthetic Vendor 4,Human-approved in fictional dataset
+INV-010,Posted,2026-10-10 08:00,Finance,41000,Synthetic Vendor 4,
+INV-011,Received,2026-10-08 14:00,AP,3900,Synthetic Vendor 5,
+INV-011,Validated,2026-10-08 18:00,AP,3900,Synthetic Vendor 5,
+INV-011,Awaiting approval,2026-10-08 20:00,Operations,3900,Synthetic Vendor 5,
+INV-011,Approved,2026-10-10 20:00,Finance,3900,Synthetic Vendor 5,Human-approved in fictional dataset
+INV-011,Posted,2026-10-11 01:00,Finance,3900,Synthetic Vendor 5,
+INV-012,Received,2026-10-08 21:00,AP,41000,Synthetic Vendor 6,
+INV-012,Validated,2026-10-09 05:00,AP,41000,Synthetic Vendor 6,Missing PO reference
+INV-012,Request clarification,2026-10-09 11:00,AP,41000,Synthetic Vendor 6,Missing required field; awaiting business owner
+INV-012,Clarification received,2026-10-12 04:00,Operations,41000,Synthetic Vendor 6,Business owner clarifies reference
+INV-012,Validated,2026-10-12 12:00,AP,41000,Synthetic Vendor 6,Revalidated after missing information
+INV-012,Awaiting approval,2026-10-12 17:00,Operations,41000,Synthetic Vendor 6,
+INV-012,Awaiting approval,2026-10-13 09:00,Operations,41000,Synthetic Vendor 6,Second review required
+INV-012,Approved,2026-10-14 04:00,Finance,41000,Synthetic Vendor 6,Human-approved in fictional dataset
+INV-012,Posted,2026-10-14 13:00,Finance,41000,Synthetic Vendor 6,
+INV-013,Received,2026-10-09 04:00,AP,16500,Synthetic Vendor 7,
+INV-013,Validated,2026-10-09 07:00,AP,16500,Synthetic Vendor 7,
+INV-013,Awaiting approval,2026-10-09 13:00,Operations,16500,Synthetic Vendor 7,
+INV-013,Approved,2026-10-10 10:00,Finance,16500,Synthetic Vendor 7,Human-approved in fictional dataset
+INV-013,Posted,2026-10-10 18:00,Finance,16500,Synthetic Vendor 7,
+INV-014,Received,2026-10-09 11:00,AP,16500,Synthetic Vendor 1,
+INV-014,Validated,2026-10-09 12:00,AP,16500,Synthetic Vendor 1,
+INV-014,Awaiting approval,2026-10-09 14:00,Operations,16500,Synthetic Vendor 1,
+INV-014,Approved,2026-10-11 13:00,Finance,16500,Synthetic Vendor 1,Human-approved in fictional dataset
+INV-014,Posted,2026-10-11 19:00,Finance,16500,Synthetic Vendor 1,
+INV-015,Received,2026-10-09 18:00,AP,8800,Synthetic Vendor 2,
+INV-015,Validated,2026-10-10 00:00,AP,8800,Synthetic Vendor 2,
+INV-015,Awaiting approval,2026-10-10 08:00,Operations,8800,Synthetic Vendor 2,
+INV-015,Approved,2026-10-12 01:00,Finance,8800,Synthetic Vendor 2,Human-approved in fictional dataset
+INV-015,Posted,2026-10-12 03:00,Finance,8800,Synthetic Vendor 2,
+INV-016,Received,2026-10-10 01:00,AP,1200,Synthetic Vendor 3,
+INV-016,Validated,2026-10-10 06:00,AP,1200,Synthetic Vendor 3,Missing PO reference
+INV-016,Request clarification,2026-10-10 14:00,AP,1200,Synthetic Vendor 3,Missing required field; awaiting business owner
+INV-016,Clarification received,2026-10-13 05:00,Operations,1200,Synthetic Vendor 3,Business owner clarifies reference
+INV-016,Validated,2026-10-13 07:00,AP,1200,Synthetic Vendor 3,Revalidated after missing information
+INV-016,Awaiting approval,2026-10-13 08:00,Operations,1200,Synthetic Vendor 3,
+INV-016,Approved,2026-10-14 15:00,Finance,1200,Synthetic Vendor 3,Human-approved in fictional dataset
+INV-016,Posted,2026-10-14 23:00,Finance,1200,Synthetic Vendor 3,
+INV-017,Received,2026-10-10 08:00,AP,8800,Synthetic Vendor 4,
+INV-017,Validated,2026-10-10 15:00,AP,8800,Synthetic Vendor 4,
+INV-017,Awaiting approval,2026-10-10 21:00,Operations,8800,Synthetic Vendor 4,
+INV-017,Approved,2026-10-11 10:00,Finance,8800,Synthetic Vendor 4,Human-approved in fictional dataset
+INV-017,Posted,2026-10-11 18:00,Finance,8800,Synthetic Vendor 4,
+INV-018,Received,2026-10-10 15:00,AP,8800,Synthetic Vendor 5,
+INV-018,Validated,2026-10-10 18:00,AP,8800,Synthetic Vendor 5,Missing PO reference
+INV-018,Request clarification,2026-10-10 20:00,AP,8800,Synthetic Vendor 5,Missing required field; awaiting business owner
+INV-018,Clarification received,2026-10-12 22:00,Operations,8800,Synthetic Vendor 5,Business owner clarifies reference
+INV-018,Validated,2026-10-12 23:00,AP,8800,Synthetic Vendor 5,Revalidated after missing information
+INV-018,Awaiting approval,2026-10-13 03:00,Operations,8800,Synthetic Vendor 5,
+INV-018,Awaiting approval,2026-10-14 09:00,Operations,8800,Synthetic Vendor 5,Second review required
+INV-018,Approved,2026-10-15 05:00,Finance,8800,Synthetic Vendor 5,Human-approved in fictional dataset
+INV-018,Posted,2026-10-15 09:00,Finance,8800,Synthetic Vendor 5,
+INV-019,Received,2026-10-10 22:00,AP,16500,Synthetic Vendor 6,
+INV-019,Validated,2026-10-11 05:00,AP,16500,Synthetic Vendor 6,
+INV-019,Awaiting approval,2026-10-11 13:00,Operations,16500,Synthetic Vendor 6,
+INV-019,Approved,2026-10-12 06:00,Finance,16500,Synthetic Vendor 6,Human-approved in fictional dataset
+INV-019,Posted,2026-10-12 09:00,Finance,16500,Synthetic Vendor 6,
+INV-020,Received,2026-10-11 05:00,AP,16500,Synthetic Vendor 7,
+INV-020,Validated,2026-10-11 12:00,AP,16500,Synthetic Vendor 7,Missing PO reference
+INV-020,Request clarification,2026-10-11 21:00,AP,16500,Synthetic Vendor 7,Missing required field; awaiting business owner
+INV-020,Clarification received,2026-10-13 09:00,Operations,16500,Synthetic Vendor 7,Business owner clarifies reference
+INV-020,Validated,2026-10-13 12:00,AP,16500,Synthetic Vendor 7,Revalidated after missing information
+INV-020,Awaiting approval,2026-10-13 19:00,Operations,16500,Synthetic Vendor 7,
+INV-020,Approved,2026-10-15 18:00,Finance,16500,Synthetic Vendor 7,Human-approved in fictional dataset
+INV-020,Posted,2026-10-15 23:00,Finance,16500,Synthetic Vendor 7,
+INV-021,Received,2026-10-11 12:00,AP,92000,Synthetic Vendor 1,
+INV-021,Validated,2026-10-11 19:00,AP,92000,Synthetic Vendor 1,
+INV-021,Awaiting approval,2026-10-12 01:00,Operations,92000,Synthetic Vendor 1,
+INV-021,Approved,2026-10-13 13:00,Finance,92000,Synthetic Vendor 1,Human-approved in fictional dataset
+INV-021,Posted,2026-10-13 17:00,Finance,92000,Synthetic Vendor 1,
+INV-022,Received,2026-10-11 19:00,AP,3900,Synthetic Vendor 2,
+INV-022,Validated,2026-10-11 21:00,AP,3900,Synthetic Vendor 2,
+INV-022,Awaiting approval,2026-10-12 00:00,Operations,3900,Synthetic Vendor 2,
+INV-022,Approved,2026-10-12 21:00,Finance,3900,Synthetic Vendor 2,Human-approved in fictional dataset
+INV-022,Posted,2026-10-13 01:00,Finance,3900,Synthetic Vendor 2,
+INV-023,Received,2026-10-12 02:00,AP,92000,Synthetic Vendor 3,
+INV-023,Validated,2026-10-12 06:00,AP,92000,Synthetic Vendor 3,
+INV-023,Awaiting approval,2026-10-12 07:00,Operations,92000,Synthetic Vendor 3,
+INV-023,Approved,2026-10-14 02:00,Finance,92000,Synthetic Vendor 3,Human-approved in fictional dataset
+INV-023,Posted,2026-10-14 05:00,Finance,92000,Synthetic Vendor 3,
+INV-024,Received,2026-10-12 09:00,AP,8800,Synthetic Vendor 4,
+INV-024,Validated,2026-10-12 14:00,AP,8800,Synthetic Vendor 4,Missing PO reference
+INV-024,Request clarification,2026-10-12 15:00,AP,8800,Synthetic Vendor 4,Missing required field; awaiting business owner
+INV-024,Clarification received,2026-10-13 19:00,Operations,8800,Synthetic Vendor 4,Business owner clarifies reference
+INV-024,Validated,2026-10-14 02:00,AP,8800,Synthetic Vendor 4,Revalidated after missing information
+INV-024,Awaiting approval,2026-10-14 11:00,Operations,8800,Synthetic Vendor 4,
+INV-024,Awaiting approval,2026-10-15 22:00,Operations,8800,Synthetic Vendor 4,Second review required
+INV-024,Approved,2026-10-17 22:00,Finance,8800,Synthetic Vendor 4,Human-approved in fictional dataset
+INV-024,Posted,2026-10-18 04:00,Finance,8800,Synthetic Vendor 4,
+INV-025,Received,2026-10-12 16:00,AP,3900,Synthetic Vendor 5,
+INV-025,Validated,2026-10-13 01:00,AP,3900,Synthetic Vendor 5,
+INV-025,Awaiting approval,2026-10-13 02:00,Operations,3900,Synthetic Vendor 5,
+INV-025,Approved,2026-10-14 19:00,Finance,3900,Synthetic Vendor 5,Human-approved in fictional dataset
+INV-025,Posted,2026-10-15 04:00,Finance,3900,Synthetic Vendor 5,
+INV-026,Received,2026-10-12 23:00,AP,16500,Synthetic Vendor 6,
+INV-026,Validated,2026-10-13 06:00,AP,16500,Synthetic Vendor 6,
+INV-026,Awaiting approval,2026-10-13 13:00,Operations,16500,Synthetic Vendor 6,
+INV-026,Approved,2026-10-15 02:00,Finance,16500,Synthetic Vendor 6,Human-approved in fictional dataset
+INV-026,Posted,2026-10-15 04:00,Finance,16500,Synthetic Vendor 6,
+INV-027,Received,2026-10-13 06:00,AP,16500,Synthetic Vendor 7,
+INV-027,Validated,2026-10-13 13:00,AP,16500,Synthetic Vendor 7,Missing PO reference
+INV-027,Request clarification,2026-10-13 14:00,AP,16500,Synthetic Vendor 7,Missing required field; awaiting business owner
+INV-027,Clarification received,2026-10-14 21:00,Operations,16500,Synthetic Vendor 7,Business owner clarifies reference
+INV-027,Validated,2026-10-14 23:00,AP,16500,Synthetic Vendor 7,Revalidated after missing information
+INV-027,Awaiting approval,2026-10-15 03:00,Operations,16500,Synthetic Vendor 7,
+INV-027,Approved,2026-10-16 19:00,Finance,16500,Synthetic Vendor 7,Human-approved in fictional dataset
+INV-027,Posted,2026-10-16 22:00,Finance,16500,Synthetic Vendor 7,
+INV-028,Received,2026-10-13 13:00,AP,1200,Synthetic Vendor 1,
+INV-028,Validated,2026-10-13 19:00,AP,1200,Synthetic Vendor 1,Missing PO reference
+INV-028,Request clarification,2026-10-13 20:00,AP,1200,Synthetic Vendor 1,Missing required field; awaiting business owner
+INV-028,Clarification received,2026-10-14 21:00,Operations,1200,Synthetic Vendor 1,Business owner clarifies reference
+INV-028,Validated,2026-10-14 22:00,AP,1200,Synthetic Vendor 1,Revalidated after missing information
+INV-028,Awaiting approval,2026-10-15 01:00,Operations,1200,Synthetic Vendor 1,
+INV-028,Approved,2026-10-16 23:00,Finance,1200,Synthetic Vendor 1,Human-approved in fictional dataset
+INV-028,Posted,2026-10-17 01:00,Finance,1200,Synthetic Vendor 1,
+INV-029,Received,2026-10-13 20:00,AP,8800,Synthetic Vendor 2,
+INV-029,Validated,2026-10-13 21:00,AP,8800,Synthetic Vendor 2,
+INV-029,Awaiting approval,2026-10-13 23:00,Operations,8800,Synthetic Vendor 2,
+INV-029,Approved,2026-10-15 00:00,Finance,8800,Synthetic Vendor 2,Human-approved in fictional dataset
+INV-029,Posted,2026-10-15 07:00,Finance,8800,Synthetic Vendor 2,
+INV-030,Received,2026-10-14 03:00,AP,3900,Synthetic Vendor 3,
+INV-030,Validated,2026-10-14 08:00,AP,3900,Synthetic Vendor 3,
+INV-030,Awaiting approval,2026-10-14 14:00,Operations,3900,Synthetic Vendor 3,
+INV-030,Awaiting approval,2026-10-16 01:00,Operations,3900,Synthetic Vendor 3,Second review required
+INV-030,Approved,2026-10-17 19:00,Finance,3900,Synthetic Vendor 3,Human-approved in fictional dataset
+INV-030,Posted,2026-10-17 21:00,Finance,3900,Synthetic Vendor 3,
+INV-031,Received,2026-10-14 10:00,AP,1200,Synthetic Vendor 4,
+INV-031,Validated,2026-10-14 18:00,AP,1200,Synthetic Vendor 4,
+INV-031,Awaiting approval,2026-10-15 02:00,Operations,1200,Synthetic Vendor 4,
+INV-031,Approved,2026-10-16 20:00,Finance,1200,Synthetic Vendor 4,Human-approved in fictional dataset
+INV-031,Posted,2026-10-17 04:00,Finance,1200,Synthetic Vendor 4,
+INV-032,Received,2026-10-14 17:00,AP,8800,Synthetic Vendor 5,
+INV-032,Validated,2026-10-14 19:00,AP,8800,Synthetic Vendor 5,Missing PO reference
+INV-032,Request clarification,2026-10-14 22:00,AP,8800,Synthetic Vendor 5,Missing required field; awaiting business owner
+INV-032,Clarification received,2026-10-15 23:00,Operations,8800,Synthetic Vendor 5,Business owner clarifies reference
+INV-032,Validated,2026-10-16 05:00,AP,8800,Synthetic Vendor 5,Revalidated after missing information
+INV-032,Awaiting approval,2026-10-16 10:00,Operations,8800,Synthetic Vendor 5,
+INV-032,Approved,2026-10-18 04:00,Finance,8800,Synthetic Vendor 5,Human-approved in fictional dataset
+INV-032,Posted,2026-10-18 07:00,Finance,8800,Synthetic Vendor 5,
+INV-033,Received,2026-10-15 00:00,AP,41000,Synthetic Vendor 6,
+INV-033,Validated,2026-10-15 01:00,AP,41000,Synthetic Vendor 6,
+INV-033,Awaiting approval,2026-10-15 05:00,Operations,41000,Synthetic Vendor 6,
+INV-033,Approved,2026-10-17 02:00,Finance,41000,Synthetic Vendor 6,Human-approved in fictional dataset
+INV-033,Posted,2026-10-17 08:00,Finance,41000,Synthetic Vendor 6,
+INV-034,Received,2026-10-15 07:00,AP,3900,Synthetic Vendor 7,
+INV-034,Validated,2026-10-15 16:00,AP,3900,Synthetic Vendor 7,
+INV-034,Awaiting approval,2026-10-15 17:00,Operations,3900,Synthetic Vendor 7,
+INV-034,Approved,2026-10-17 14:00,Finance,3900,Synthetic Vendor 7,Human-approved in fictional dataset
+INV-034,Posted,2026-10-17 19:00,Finance,3900,Synthetic Vendor 7,
+INV-035,Received,2026-10-15 14:00,AP,92000,Synthetic Vendor 1,
+INV-035,Validated,2026-10-15 16:00,AP,92000,Synthetic Vendor 1,
+INV-035,Awaiting approval,2026-10-15 21:00,Operations,92000,Synthetic Vendor 1,
+INV-035,Approved,2026-10-17 18:00,Finance,92000,Synthetic Vendor 1,Human-approved in fictional dataset
+INV-035,Posted,2026-10-18 00:00,Finance,92000,Synthetic Vendor 1,
+INV-036,Received,2026-10-15 21:00,AP,3900,Synthetic Vendor 2,
+INV-036,Validated,2026-10-16 03:00,AP,3900,Synthetic Vendor 2,Missing PO reference
+INV-036,Request clarification,2026-10-16 07:00,AP,3900,Synthetic Vendor 2,Missing required field; awaiting business owner
+INV-036,Clarification received,2026-10-18 12:00,Operations,3900,Synthetic Vendor 2,Business owner clarifies reference
+INV-036,Validated,2026-10-18 21:00,AP,3900,Synthetic Vendor 2,Revalidated after missing information
+INV-036,Awaiting approval,2026-10-19 06:00,Operations,3900,Synthetic Vendor 2,
+INV-036,Awaiting approval,2026-10-20 15:00,Operations,3900,Synthetic Vendor 2,Second review required
+INV-036,Approved,2026-10-21 17:00,Finance,3900,Synthetic Vendor 2,Human-approved in fictional dataset
+INV-036,Posted,2026-10-21 21:00,Finance,3900,Synthetic Vendor 2,
