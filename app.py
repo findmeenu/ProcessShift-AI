@@ -6,6 +6,9 @@ import json
 import streamlit as st
 import pandas as pd
 from engine import analyze, executive_brief, load_rows, recommendations, safe_ai_payload, scenario
+from engine import analyze, executive_brief, load_rows, recommendations, safe_ai_payload, scenario
+from strategy import Option, options_default, compare, recommend, sensitivity, report
+from validation import evaluate
 
 HERE = Path(__file__).resolve().parent
 st.set_page_config(page_title="ProcessShift | AI Change Copilot", page_icon="🔎", layout="wide")
@@ -44,7 +47,7 @@ ideas = recommendations(results)
 value = scenario(results, manual_minutes, reduction, monthly_cases, hourly_cost)
 brief = executive_brief(results, ideas, value)
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["📊 Diagnose", "🧩 Root-cause hypotheses", "🤖 AI consultant", "📋 Pilot & business case",  "🧾 Invoice AI Assistant", "📁 Bulk Invoice Processing", "📈 Automation Impact"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(["Diagnose", "Root-cause hypotheses", "🤖 AI consultant", " Pilot & business case",  " Invoice AI Assistant", " Bulk Invoice Processing", "📈 Automation Impact", "Investment Strategy"])
 with tab1:
     st.subheader("Operational baseline")
     a, b, c, d = st.columns(4)
@@ -945,3 +948,87 @@ with tab7:
 
         except Exception as e:
             st.error(f"Dashboard error: {e}")
+
+
+
+with tab8:
+    st.header("Technology investment decision | Strategy case")
+    st.info("Synthetic case study. Event-log metrics are computed; costs, error rates, adoption and time savings below are editable assumptions, NOT measured benefits.")
+    st.subheader("1. Evidence from the event log")
+    e1, e2, e3 = st.columns(3)
+    e1.metric("Synthetic cases", results["cases"])
+    e2.metric("Rework cases", results["rework_count"])
+    e3.metric("Missing-info cases", results["missing_info_count"])
+    st.caption("These observations identify potential issues but do not prove the root cause, time spent manually, or future savings.")
+
+    st.subheader("2. Financial and operating assumptions")
+    a, b, c = st.columns(3)
+    with a:
+        volume = st.number_input("Invoices per month", min_value=0, value=350, step=25, key="strat_volume")
+        baseline = st.number_input("Baseline handling minutes / invoice", min_value=0.0, value=18.0, step=1.0)
+    with b:
+        labor = st.number_input("Staff cost SEK/hour", min_value=0.0, value=400.0, step=25.0, key="strat_labor")
+        err_rate = st.slider("Baseline error/exception rate (%)", 0, 100, 10)
+    with c:
+        err_cost = st.number_input("Cost per error/exception (SEK)", min_value=0.0, value=180.0, step=20.0)
+        discount = st.slider("Annual discount rate (%)", 0, 30, 10)
+    years = st.selectbox("Evaluation horizon (years)", [1, 2, 3, 4, 5], index=2)
+    st.caption("All figures above are user-provided scenarios. The sample's missing-info rate is not automatically treated as a financial error rate.")
+
+    st.subheader("3. Compare three alternatives")
+    st.caption("Edit investment costs, benefits and adoption. Annual operating costs include license/API and support. Savings are capacity value, not guaranteed cash savings.")
+    options = []
+    for i, default in enumerate(options_default()):
+        with st.expander(default.name, expanded=(i == 0)):
+            c1, c2, c3 = st.columns(3)
+            with c1:
+                setup = st.number_input("One-time setup SEK", min_value=0.0, value=float(default.setup_sek), step=5000.0, key=f"setup_{i}")
+                license_cost = st.number_input("Annual license/API SEK", min_value=0.0, value=float(default.annual_license_sek), step=5000.0, key=f"license_{i}")
+            with c2:
+                support = st.number_input("Annual support SEK", min_value=0.0, value=float(default.annual_support_sek), step=5000.0, key=f"support_{i}")
+                minutes = st.number_input("Potential minutes saved / invoice", min_value=0.0, value=float(default.minutes_saved_per_invoice), step=1.0, key=f"minutes_{i}")
+            with c3:
+                adoption = st.slider("Expected adoption (%)", 0, 100, int(default.adoption * 100), key=f"adoption_{i}")
+                residual = st.slider("Residual exception rate (%)", 0, 100, int(default.residual_error_rate * 100), key=f"residual_{i}")
+            st.write("**Key risk:**", default.risk)
+            st.write("**Validation required:**", default.evidence_needed)
+            options.append(Option(default.name, setup, license_cost, support, minutes, adoption / 100, residual / 100, default.risk, default.evidence_needed))
+
+    kwargs = dict(monthly_volume=volume, minutes_baseline=baseline, hourly_cost=labor,
+                  baseline_error_rate=err_rate / 100, cost_per_error=err_cost,
+                  discount_rate=discount / 100, years=years)
+    comparisons = compare(options, **kwargs)
+    chosen = recommend(comparisons)
+    display = pd.DataFrame(comparisons)
+    st.dataframe(display[["name", "setup_sek", "annual_recurring_cost_sek", "annual_capacity_value_sek", "annual_error_avoidance_sek", "npv_sek", "roi_pct", "payback_months"]], use_container_width=True, hide_index=True)
+    st.caption("NPV discounts modeled net annual benefits after recurring costs, less setup. ROI is undiscounted over the selected horizon; payback assumes constant annual net benefit.")
+    if chosen:
+        st.success(f"**Provisional model result:** Pilot {chosen['name']} (highest positive modeled NPV: SEK {chosen['npv_sek']:,.0f}). Validate assumptions and risk controls before approving any investment.")
+    else:
+        st.warning("**Provisional model result:** None of the alternatives has positive modeled NPV. Revisit after baseline validation.")
+
+    st.subheader("4. Sensitivity: does the recommendation survive uncertainty?")
+    scenarios = sensitivity(options, volume, baseline, labor, err_rate / 100, err_cost, discount / 100, years)
+    sens_df = pd.DataFrame(scenarios)
+    st.dataframe(sens_df.pivot(index="option", columns="scenario", values="npv_sek"), use_container_width=True)
+    st.caption("Conservative = 70% of base volume and 70% of expected adoption; optimistic = 130% volume and 110% adoption (capped at 100%). Costs remain unchanged.")
+
+    st.subheader("5. Reproducible validation: required-field detector")
+    metrics = evaluate()
+    v1, v2, v3 = st.columns(3)
+    v1.metric("Synthetic labeled fixtures", metrics["n"])
+    v2.metric("Fixture accuracy", f"{metrics['accuracy']:.0%}")
+    v3.metric("False negatives", metrics["fn"])
+    st.caption("This tests deterministic missing-field rules against 12 manually labeled synthetic cases. It is NOT ML accuracy, production performance, general invoice correctness, or independent client validation.")
+    st.dataframe(pd.DataFrame([metrics]), hide_index=True)
+
+    st.subheader("6. Download the consulting decision brief")
+    assumptions = {"monthly invoices": volume, "manual minutes/invoice": baseline,
+                   "staff cost SEK/hour": labor, "baseline exception rate": f"{err_rate}%",
+                   "cost per exception SEK": err_cost, "discount rate": f"{discount}%", "horizon years": years}
+    decision_brief = report(comparisons, chosen, results, assumptions, scenarios)
+    st.download_button("Download investment decision brief (.txt)", decision_brief,
+                       file_name="processshift_strategy_brief.txt", mime="text/plain")
+    st.download_button("Download option comparison (.csv)", display.to_csv(index=False),
+                       file_name="processshift_option_comparison.csv", mime="text/csv")
+
